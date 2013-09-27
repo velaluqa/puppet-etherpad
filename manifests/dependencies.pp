@@ -1,4 +1,8 @@
 class etherpad::dependencies {
+  class { 'nodejs':
+    version => 'v0.10.15',
+  }
+
   if !defined(Package['gzip']) {
     package { 'gzip':
       ensure   => installed
@@ -33,10 +37,5 @@ class etherpad::dependencies {
     package { 'build-essential':
       ensure   => installed
     }
-  }
-
-  # - make sure nodejs is installed correctly
-  class { 'nodejs':
-    version => 'v0.10.15',
   }
 }
