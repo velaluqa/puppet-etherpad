@@ -18,11 +18,6 @@ class etherpad::dependencies {
       ensure   => installed
     }
   }
-  if !defined(Package['python']) {
-    package { 'python':
-      ensure   => installed
-    }
-  }
   if !defined(Package['libssl-dev']) {
     package { 'libssl-dev':
       ensure   => installed
