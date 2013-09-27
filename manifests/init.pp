@@ -55,6 +55,7 @@ class etherpad(
     owner => $etherpad_user,
     group => $etherpad_user,
     mode => "0755",
+    require => Class['etherpad::setup'],
   }
 
   # ensure the service is running
