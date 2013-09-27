@@ -1,6 +1,7 @@
 class etherpad::setup {
   $etherpad_user    = $etherpad::etherpad_user
   $etherpad_root    = $etherpad::etherpad_root
+  $etherpad_sources = $etherpad::etherpad_sources
   $etherpad_comment = $etherpad::etherpad_comment
 
   user { $etherpad_user:
