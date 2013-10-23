@@ -42,6 +42,7 @@ class etherpad(
   $etherpad_users                  = $etherpad::params::etherpad_users,
   $etherpad_sources                = $etherpad::params::etherpad_sources,
   $etherpad_branch                 = $etherpad::params::etherpad_branch,
+  $etherpad_abiword                = $etherpad::params::etherpad_abiword,
 ) inherits etherpad::params {
 
   class { 'etherpad::dependencies': }

@@ -25,4 +25,5 @@ class etherpad::params {
   $etherpad_users                  = UNDEF
   $etherpad_sources                = "git://github.com/ether/etherpad-lite.git"
   $etherpad_branch                 = "master"
+  $etherpad_abiword                = false
 } # Class:: etherpad::params
