@@ -45,19 +45,11 @@ class etherpad::setup {
     group => $etherpad_user,
   }
 
-  exec { 'etherpad-fetch':
-    path => '/bin:/usr/bin',
-    command => "bash -c 'cd ${etherpad_root}; git fetch'",
-    require => Exec["etherpad-clone"],
-    user => $etherpad_user,
-    group => $etherpad_user
-  }
-
   exec { "etherpad-upgrade":
     path => "/bin:/usr/bin",
-    onlyif => "bash -c 'cd ${etherpad_root}; git diff HEAD..origin/${etherpad_branch} | grep -q ^---'",
+    onlyif => "bash -c 'cd ${etherpad_root}; git fetch; git diff HEAD..origin/${etherpad_branch} | grep -q ^---'",
     command => "bash -c 'cd ${etherpad_root}; git checkout origin/${etherpad_branch}'",
-    require => Exec['etherpad-fetch'],
+    require => Exec['etherpad-clone'],
     user => $etherpad_user,
     group => $etherpad_user
   }
