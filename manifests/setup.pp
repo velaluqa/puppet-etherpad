@@ -3,6 +3,7 @@ class etherpad::setup {
   $etherpad_root    = $etherpad::etherpad_root
   $etherpad_sources = $etherpad::etherpad_sources
   $etherpad_comment = $etherpad::etherpad_comment
+  $etherpad_branch  = $etherpad::etherpad_branch
 
   user { $etherpad_user:
     ensure   => present,
