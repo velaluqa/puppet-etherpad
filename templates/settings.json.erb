@@ -36,18 +36,15 @@
   //The Type of the database. You can choose between dirty, postgres, sqlite and mysql
   //You shouldn't use "dirty" for for anything else than testing or development
 
-  /* An Example of MySQL Configuration
-  */
-
-<%- if @etherpad_db_type == "mysql" -%>
-  "dbType" : "mysql",
+<%- if ["mysql", "postgres"].include?(@etherpad_database_type) -%>
+  "dbType" : "<%= @etherpad_database_type %>",
   "dbSettings" : {
-    "user"    : "<%= @etherpad_mysql_user %>",
-    "host"    : "<%= @etherpad_mysql_host %>",
-    "password": "<%= @etherpad_mysql_password %>",
-    "database": "<%= @etherpad_mysql_database %>"
+    "user"    : "<%= @etherpad_database_user %>",
+    "host"    : "<%= @etherpad_database_host %>",
+    "password": "<%= @etherpad_database_password %>",
+    "database": "<%= @etherpad_database_name %>"
   },
-<%- elsif @etherpad_db_type == "mysql" -%>
+<%- elsif @etherpad_db_type == "dirty" -%>
   "dbType" : "dirty",
   //the database specific settings
   "dbSettings" : {
