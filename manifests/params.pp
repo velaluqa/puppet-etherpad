@@ -20,6 +20,8 @@ class etherpad::params {
   $etherpad_require_authentication = false
   $etherpad_require_authorization  = false
   $etherpad_require_session        = false
+  $etherpad_trust_proxy            = false
+  $etherpad_disable_ip_logging     = false
   $etherpad_edit_only              = false
   $etherpad_max_age                = 21600
   $etherpad_users                  = UNDEF

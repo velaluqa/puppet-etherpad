@@ -37,6 +37,8 @@ class etherpad(
   $etherpad_require_authentication = $etherpad::params::etherpad_require_authentication,
   $etherpad_require_authorization  = $etherpad::params::etherpad_require_authorization,
   $etherpad_require_session        = $etherpad::params::etherpad_require_session,
+  $etherpad_trust_proxy            = $etherpad::params::etherpad_trust_proxy,
+  $etherpad_disable_ip_logging     = $etherpad::params::etherpad_disable_ip_logging,
   $etherpad_edit_only              = $etherpad::params::etherpad_edit_only,
   $etherpad_max_age                = $etherpad::params::etherpad_max_age,
   $etherpad_users                  = $etherpad::params::etherpad_users,
