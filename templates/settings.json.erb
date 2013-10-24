@@ -89,11 +89,12 @@
   /* Users for basic authentication. is_admin = true gives access to /admin.
      If you do not uncomment this, /admin will not be available! */
   "users": {
-<%- @etherpad_users.each_pair do |name, options| -%>
-    "<%= name %>": {
-      "password": "<%= options["password"] %>",
-      "is_admin": <%= options["is_admin"] %>
-    },
+<%- user_names = @etherpad_users.keys.sort -%>
+<%- user_names.each do |user_name| -%>
+    "<%= user_name %>": {
+      "password": "<%= @etherpad_users[user_name]["password"] %>",
+      "is_admin": <%= @etherpad_users[user_name]["is_admin"] %>
+    }<%= "," unless user_name == user_names.last %>
 <%- end -%>
   },
 
