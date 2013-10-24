@@ -33,4 +33,10 @@ class etherpad::dependencies {
       ensure   => installed
     }
   }
+
+  if $etherpad::etherpad_abiword and !defined(Package['abiword']) {
+    package { 'abiword':
+      ensure => installed,
+    }
+  }
 }

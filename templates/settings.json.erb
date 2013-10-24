@@ -36,18 +36,15 @@
   //The Type of the database. You can choose between dirty, postgres, sqlite and mysql
   //You shouldn't use "dirty" for for anything else than testing or development
 
-  /* An Example of MySQL Configuration
-  */
-
-<%- if @etherpad_db_type == "mysql" -%>
-  "dbType" : "mysql",
+<%- if ["mysql", "postgres"].include?(@etherpad_database_type) -%>
+  "dbType" : "<%= @etherpad_database_type %>",
   "dbSettings" : {
-    "user"    : "<%= @etherpad_mysql_user %>",
-    "host"    : "<%= @etherpad_mysql_host %>",
-    "password": "<%= @etherpad_mysql_password %>",
-    "database": "<%= @etherpad_mysql_database %>"
+    "user"    : "<%= @etherpad_database_user %>",
+    "host"    : "<%= @etherpad_database_host %>",
+    "password": "<%= @etherpad_database_password %>",
+    "database": "<%= @etherpad_database_name %>"
   },
-<%- elsif @etherpad_db_type == "mysql" -%>
+<%- elsif @etherpad_db_type == "dirty" -%>
   "dbType" : "dirty",
   //the database specific settings
   "dbSettings" : {
@@ -74,7 +71,7 @@
 
   /* This is the path to the Abiword executable. Setting it to null, disables abiword.
      Abiword is needed to advanced import/export features of pads*/
-  "abiword" : null,
+  "abiword" : <%= @etherpad_abiword ? "\"/usr/bin/abiword\"" : "null" %>,
 
   /* This setting is used if you require authentication of all users.
      Note: /admin always requires authentication. */
@@ -83,14 +80,21 @@
   /* Require authorization by a module, or a user with is_admin set, see below. */
   "requireAuthorization": <%= @etherpad_require_authorization %>,
 
+  /*when you use NginX or another proxy/ load-balancer set this to true*/
+  "trustProxy": <%= @etherpad_trust_proxy %>,
+
+  /* Privacy: disable IP logging */
+  "disableIPlogging": <%= @etherpad_disable_ip_logging %>,
+
   /* Users for basic authentication. is_admin = true gives access to /admin.
      If you do not uncomment this, /admin will not be available! */
   "users": {
-<%- @etherpad_users.each_pair do |name, options| -%>
-    "<%= name %>": {
-      "password": "<%= options["password"] %>",
-      "is_admin": <%= options["is_admin"] %>
-    },
+<%- user_names = @etherpad_users.keys.sort -%>
+<%- user_names.each do |user_name| -%>
+    "<%= user_name %>": {
+      "password": "<%= @etherpad_users[user_name]["password"] %>",
+      "is_admin": <%= @etherpad_users[user_name]["is_admin"] %>
+    }<%= "," unless user_name == user_names.last %>
 <%- end -%>
   },
 
