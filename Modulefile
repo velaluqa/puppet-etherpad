@@ -1,6 +1,6 @@
 name    'velaluqa-etherpad'
 version '1.0.0'
-source  'https://github.com/leoc/puppet-etherpad'
+source  'git://github.com/velaluqa/puppet-etherpad.git'
 author  'velaluqa'
 license 'GPLv3'
 summary 'Etherpad Module'
