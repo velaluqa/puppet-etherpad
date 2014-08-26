@@ -2,11 +2,32 @@
 #
 # === Parameters
 #
-# TODO: Add parameters
-#
-# === Examples
-#
-# TODO: Add examples
+# [etherpad_title] Etherpad title (default: "Etherpad").
+# [etherpad_root] Where to install etherpad to (default: "/srv/etherpad").
+# [etherpad_favicon] Etherpad favicon (default: "favicon.ico").
+# [etherpad_session_key] Etherpad session key (default: "changeme").
+# [etherpad_database_type] Etherpad database type (default: "dirty").
+# [etherpad_database_user] Etherpad database user (default: "etherpaddbu").
+# [etherpad_database_host] Etherpad database host (default: "localhost").
+# [etherpad_database_password] Etherpad database password (default: "changeme").
+# [etherpad_database_name] Etherpad database name (default: "etherpaddb").
+# [etherpad_dirty_filename] Etherpad dirty filename (default: "var/dirty.db").
+# [etherpad_bind_ip] Bind etherpad to a specific ip (default: "0.0.0.0").
+# [etherpad_port] The port to run etherpad with (default: 9001).
+# [etherpad_user] The username for the etherpad user (default: "etherpad").
+# [etherpad_comment] The user comment for etherpad user (default: "").
+# [etherpad_pad_text] The default content for a new pad (default: "Welcome to etherpad!").
+# [etherpad_require_authentication] Require authentication (default: false).
+# [etherpad_require_authorization] Require authorization (default: false).
+# [etherpad_require_session] Require session (default: false).
+# [etherpad_trust_proxy] (default: false)
+# [etherpad_disable_ip_logging] Disable IP logging (default: false).
+# [etherpad_edit_only] Edit only (default: false).
+# [etherpad_max_age] Maximum session age (default: 21600).
+# [etherpad_users] Hash of users (default: UNDEF).
+# [etherpad_sources] Etherpad repository (default: "git://github.com/ether/etherpad-lite.git").
+# [etherpad_branch] Etherpad repository branch (default: "master").
+# [etherpad_abiword] Etherpad abiword support (default: false).
 #
 # === Authors
 #
