@@ -1,0 +1,14 @@
+{
+  "name": "velaluqa-etherpad",
+  "version": "1.0.1",
+  "author": "Arthur Leonard Andersen",
+  "summary": "Etherpad Module",
+  "license": "GPLv3",
+  "source": "https://github.com/velaluqa/puppet-etherpad",
+  "project_page": "http://github.com/velaluqa/puppet-etherpad",
+  "issues_url": "https://github.com/velaluqa/puppet-etherpad/issues",
+  "description": "Etherpad lite module for Debian",
+  "dependencies": [
+    {"name":"willdurand/nodejs","version_requirement":">= 1.1.3"}
+  ]
+}
