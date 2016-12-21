@@ -1,3 +1,8 @@
+# UNMAINTAINED
+
+Since we stopped using puppet for our infrastructure, we are not going to 
+maintain this solution anymore.
+
 # etherpad-lite
 
 `puppet-etherpad` installs etherpad lite and starts the nodejs
